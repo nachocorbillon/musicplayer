@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <title>Simple Music Player</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 <!-- https://www.geeksforgeeks.org/create-a-music-player-using-javascript/ -->
 
@@ -10,9 +10,26 @@
 	*{box-sizing: border-box;}
 	body{ display: flex; justify-content: center; align-items: center;overflow: hidden;}
 #player{display: flex; flex-direction: column;width: 240px; align-items: center; padding-bottom:16px; background-color: rgba(0,0,0,0);}
-#details{background-color: black; color:beige; padding:0;width: 100%;  overflow: hidden;
-	position: relative; line-height:0;font-size: 16px;}
-#marquesina{
+
+
+	#buttons{display: flex;}
+	#buttons i{display: flex; flex-direction: column; width:42px; margin:8px; font-size: 36px;}
+	#buttons i:active {color:#0057f4;}
+	#buttons:active~#details #marquesina{color:goldenrod;}
+	
+	label, input {vertical-align: middle;}
+	#total-duration{text-align:center;}
+	#seek_slider {max-width:120px;}
+
+
+
+
+@media screen and (min-width: 251px){
+
+	#details{background-color: black; color:beige; padding:0;width: 100%;  overflow: hidden;
+		position: relative; line-height:0;font-size: 16px;}
+
+	#marquesina{
 	animation: scroll-left 20s linear infinite;
 }
 
@@ -46,16 +63,27 @@
 		transform: translateX(-100%);
 	}
 }
+}
 
 
-#buttons{display: flex;}
-#buttons i{display: flex; flex-direction: column; width:42px; margin:8px; font-size: 36px;}
-#buttons i:active {color:#0057f4;}
-#buttons:active~#details #marquesina{color:goldenrod;}
 
-label, input {vertical-align: middle;}
-#total-duration{text-align:center;}
-#seek_slider {max-width:120px;}
+@media screen and (max-width: 250px)
+{
+	#buttons i{width:21px; margin:4px; font-size: 18px;}
+	label {font-size: 14px;}
+	#seek_slider {max-width:50vw;}
+	#volume_slider {max-width:50vw;}
+	#marquesina{display:flex; flex-direction: column;}
+	#guion {display: none;}
+}
+
+@media screen and (max-width: 220px)
+{
+.slider_container:nth-child(3){display: none;}
+#current-time, #total-duration{display: none;}
+#seek_slider {min-width:90vw;}
+}
+
 </style>
 
 
@@ -86,7 +114,7 @@ label, input {vertical-align: middle;}
 
 	<div id="details">
 		<p id="marquesina">
-			<span id="track-name">Track Name</span> -
+			<span id="track-name">Track Name</span> <span id="guion"> - </span>
 			<span id="track-artist">Track Artist</span>
 		</p>
 	</div>

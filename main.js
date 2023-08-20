@@ -73,6 +73,8 @@ function loadTrack(track_index) {
     seek_slider.value = 0;
     }
     function playpauseTrack() {
+
+
         // Switch between playing and pausing
         // depending on the current state
         if (!isPlaying) playTrack();
@@ -86,9 +88,11 @@ function loadTrack(track_index) {
         
         // Cambié el innerHTML por un toggle
         playpause_btn.classList.toggle("fa-play-circle");
+        // console.log("PLAY. primer toggle" +playpause_btn.classList);
         playpause_btn.classList.toggle("fa-pause-circle");
+        // console.log("PLAY. segundo toggle: " +playpause_btn.classList);
         }
-        
+
         function pauseTrack() {
         // Pause the loaded track
         curr_track.pause();
@@ -96,7 +100,9 @@ function loadTrack(track_index) {
         
         // Cambié el innerHTML por un toggle
         playpause_btn.classList.toggle("fa-pause-circle");
+        // console.log("PAUSA. primer toggle: " +playpause_btn.classList);
         playpause_btn.classList.toggle("fa-play-circle");
+        // console.log("PAUSA.segundo toggle: " +playpause_btn.classList);
         }
         
         function nextTrack() {
