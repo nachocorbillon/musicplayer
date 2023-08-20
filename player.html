@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Simple Music Player</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+<!-- https://www.geeksforgeeks.org/create-a-music-player-using-javascript/ -->
+
+<style>
+	*{box-sizing: border-box;}
+	body{ display: flex; justify-content: center; align-items: center;overflow: hidden;}
+#player{display: flex; flex-direction: column;width: 240px; align-items: center; padding-bottom:16px; background-color: rgba(0,0,0,0);}
+#details{background-color: black; color:beige; padding:0;width: 100%;  overflow: hidden;
+	position: relative; line-height:0;font-size: 16px;}
+#marquesina{
+	animation: scroll-left 20s linear infinite;
+}
+
+@-moz-keyframes scroll-left {
+	0% {
+		-moz-transform: translateX(100%);
+	}
+	100% {
+		-moz-transform: translateX(-100%);
+	}
+}
+
+@-webkit-keyframes scroll-left {
+	0% {
+		-webkit-transform: translateX(100%);
+	}
+	100% {
+		-webkit-transform: translateX(-100%);
+	}
+}
+
+@keyframes scroll-left {
+	0% {
+		-moz-transform: translateX(100%);
+		-webkit-transform: translateX(100%);
+		transform: translateX(100%);
+	}
+	100% {
+		-moz-transform: translateX(-100%);
+		-webkit-transform: translateX(-100%);
+		transform: translateX(-100%);
+	}
+}
+
+
+#buttons{display: flex;}
+#buttons i{display: flex; flex-direction: column; width:42px; margin:8px; font-size: 36px;}
+#buttons i:active {color:#0057f4;}
+#buttons:active~#details #marquesina{color:goldenrod;}
+
+label, input {vertical-align: middle;}
+#total-duration{text-align:center;}
+#seek_slider {max-width:120px;}
+</style>
+
+
+</head>
+<body>
+<div id="player">
+
+	<div id="buttons">
+		<i id="prev-track" onclick="prevTrack()" class="fa fa-step-backward fa-2x"></i>
+		<i id="playpause-track" onclick="playpauseTrack()" class="fa fa-play-circle fa-5x"></i>
+		<i id="next-track" onclick="nextTrack()" class="fa fa-step-forward fa-2x"></i>
+	</div>
+
+
+	<div class="slider_container">
+	<label for="slider" id="current-time">00:00</label>
+	<input name="seek" type="range" min="1" max="100"
+		value="0" id="seek_slider" onchange="seekTo()">
+		<label for="slider" id="total-duration">00:00</label>
+	</div>
+
+	<div class="slider_container">
+	<i class="fa fa-volume-down"></i>
+	<input name="volume" type="range" min="1" max="100"
+		value="99" id="volume_slider" onchange="setVolume()">
+	<i class="fa fa-volume-up"></i>
+	</div>
+
+	<div id="details">
+		<p id="marquesina">
+			<span id="track-name">Track Name</span> -
+			<span id="track-artist">Track Artist</span>
+		</p>
+	</div>
+</div>
+
+
+<script src="main.js"></script>
+</body>
+</html>
