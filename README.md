@@ -8,4 +8,4 @@ cambié detalles del diseño
 cambié un innerHTML por un toggle
 agregué una marquesina
 
-New feature for Desktop Portfolio, tweaked a bit geeks for geeks project.
+New feature for Desktop Portfolio, tweaked a bit a geeks for geeks project.
