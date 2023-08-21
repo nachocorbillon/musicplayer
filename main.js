@@ -24,8 +24,8 @@ let curr_track = document.createElement('audio');
 let track_list = [
 {
 	name: "Mushroom Hill Zone",
-	artist: "The Consuls",
-	path: "./mp3/The Consuls - Mushroom Hill Zone.mp3",
+	artist: "The Consouls",
+	path: "./mp3/The Consouls - Mushroom Hill Zone.mp3",
 },
 {
 	name: "Banderbill",
